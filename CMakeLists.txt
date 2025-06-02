@@ -11,6 +11,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
 
 include(FetchContent)
 
+# Used for REST api, which is above the HTTP protocol, which is above the
+# TCP protocol, which is above the IP protocol
 FetchContent_Declare(
   cpr
   GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -19,14 +21,17 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(cpr)
 
-set(USE_TLS TRUE)
-FetchContent_Declare(
-  ixwebsocket
-  GIT_REPOSITORY https://github.com/machinezone/IXWebSocket
-  GIT_TAG v11.0.2
-  GIT_SHALLOW TRUE)
-FetchContent_MakeAvailable(ixwebsocket)
+# cpr does not support websockets
+# uncomment this if you need websocket support
+# set(USE_TLS TRUE)
+# FetchContent_Declare(
+#  ixwebsocket
+#  GIT_REPOSITORY https://github.com/machinezone/IXWebSocket
+#  GIT_TAG v11.0.2
+#  GIT_SHALLOW TRUE)
+# FetchContent_MakeAvailable(ixwebsocket)
 
+# Used to parse JSON
 FetchContent_Declare(
   glaze
   GIT_REPOSITORY https://github.com/stephenberry/glaze.git
@@ -34,6 +39,7 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE)
 FetchContent_MakeAvailable(glaze)
 
+# Used for logging
 FetchContent_Declare(
   spdlog
   GIT_REPOSITORY https://github.com/gabime/spdlog.git
