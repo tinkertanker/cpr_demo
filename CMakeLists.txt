@@ -1,3 +1,15 @@
+# Although this project uses CMake, you should use Makefile for your
+# project. The reason is to teach you fundamentals of how C++ code can
+# be modularised. 
+#
+# After understanding Makefile, it will be a lot easier to understand 
+# the other build systems.
+#
+# (https://stackoverflow.com/questions/406004/call-cmake-from-make-to-create-makefiles)
+# (https://www.perplexity.ai/search/is-cmake-in-general-slower-tha-QKJ9XTkZSc2UTw4cLRCnFw#1)
+#
+# In general, when adding, removing, or renaming a file in a multi-file C++ project,
+# the CMake configure build tree section takes a significant amount of time.
 cmake_minimum_required(VERSION 3.28)
 project(cpr_test LANGUAGES CXX)
 
